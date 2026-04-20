@@ -12,6 +12,10 @@ To learn more about our evals methodology and system architecture, please read Y
 - [How to Evaluate AI Search for the Agentic Era](https://you.com/resources/how-we-evaluate-ai-search)
 - [Randomness in AI Benchmarks: What Makes an Eval Trustworthy?](https://you.com/resources/randomness-in-ai-benchmarks)
 
+**We want to hear from you**. If you hit a configuration issue, have questions about your eval setup, want to request a 
+benchmark, or just want to talk through how to evaluate search providers for your use case, start a conversation in 
+GitHub Discussions. For enterprise or private inquiries, reach out directly at api@you.com. We read it.
+
 ## Results
 
 Below are evaluation results across different search samplers and benchmark suites. Grading is performed via an LLM 
