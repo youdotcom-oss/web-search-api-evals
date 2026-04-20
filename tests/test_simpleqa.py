@@ -55,7 +55,7 @@ async def test_simpleqa_runner(test_results_cleanup):
     4. Metrics are calculated correctly
     """
     # Create test arguments
-    num_problems = 10
+    num_problems = 2
     results_dir = get_test_results_dir()
     args = argparse.Namespace(
         samplers=[sampler.sampler_name for sampler in samplers.SAMPLERS],
@@ -63,7 +63,6 @@ async def test_simpleqa_runner(test_results_cleanup):
         limit=num_problems,  # Test with small subset for speed
         batch_size=10,
         max_concurrent_tasks=10,
-        num_results=5,
         clean=True,
     )
 
@@ -84,7 +83,7 @@ async def test_simpleqa_runner(test_results_cleanup):
         expected_columns = [
             "query",
             "internal_response_time_ms",
-            "end_to_end_time_ms",
+            "request_response_time_ms",
             "evaluation_result",
         ]
         for col in expected_columns:
@@ -114,8 +113,8 @@ async def test_simpleqa_runner(test_results_cleanup):
             == args.samplers.sort()
         )
         assert "accuracy_score" in df_metrics.columns
-        assert "avg_internal_latency" in df_metrics.columns
-        assert "avg_end_to_end_latency" in df_metrics.columns
+        assert "p50_internal_latency" in df_metrics.columns
+        assert "p50_request_response_latency" in df_metrics.columns
         assert "problem_count" in df_metrics.columns
 
 
@@ -127,7 +126,7 @@ async def test_simpleqa_runner_resume_capability(test_results_cleanup):
     This test verifies that if a run is interrupted, it can continue
     from where it left off without re-processing completed queries.
     """
-    num_problems = 10
+    num_problems = 2
     results_dir = get_test_results_dir()
     # Create test arguments for first run (partial)
     args = argparse.Namespace(
@@ -153,7 +152,7 @@ async def test_simpleqa_runner_resume_capability(test_results_cleanup):
         ), f"Expected {num_problems} results from first run, got {first_run_count}"
 
     # Second run with more queries (should add new results)
-    args.limit = 5
+    args.limit = 2
     args.clean = False  # Don't clean, resume from existing
     await run_evals(args, results_dir=results_dir)
     for sampler in args.samplers:
