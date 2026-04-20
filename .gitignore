@@ -1,0 +1,30 @@
+__pycache__/
+evals.egg-info/
+web_search_api_evals.egg-info/
+
+.venv/
+venv/
+venv*
+
+# Files
+src/evals/results/*
+tests/results/*
+
+# Environment Variables
+.env
+
+# MacOS folder metadata
+.DS_Store
+**/.DS_Store
+
+# IDE folder metadata
+.idea/
+.vscode/
+
+# Claude metadata
+.claude
+
+# Python
+*.pyc
+*.pyo
+*.pyd
