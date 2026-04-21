@@ -66,7 +66,7 @@ Requires Python versions >=3.10 and <3.14
 ```bash
 # Clone the repository
 git clone https://github.com/youdotcom-oss/web-search-api-evals.git
-cd evals
+cd web-search-api-evals
 
 # Create a virtual environment, then install
 pip install -r requirements.txt
