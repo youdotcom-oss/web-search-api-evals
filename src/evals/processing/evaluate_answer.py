@@ -11,6 +11,8 @@ from typing import Dict, Any
 
 from evals import constants
 from evals.processing import llm, deepsearchqa_utils
+from evals.processing.people_search.field_fill import score_people_output
+from evals.processing.people_search.llm_judges import run_people_llm_judges
 
 
 class AnswerGrader:
@@ -166,4 +168,51 @@ class AnswerGrader:
             "is_correct": is_correct,
             "is_incorrect": is_incorrect,
             "score": is_correct,
+        }
+
+    async def evaluate_single_people_search(
+        self, question: str, target: str, predicted_answer: str
+    ) -> Dict[str, Any]:
+        """Score people-search provider output with deterministic field-fill scorers.
+
+        Unlike SimpleQA/FRAMES, there is no gold answer. ``target`` is a JSON
+        string of row metadata (persona, query_type, etc.). ``predicted_answer``
+        is a JSON string of structured people[] output from a people sampler.
+        """
+        try:
+            metadata = json.loads(target) if target else {}
+            if not isinstance(metadata, dict):
+                metadata = {}
+        except json.JSONDecodeError:
+            metadata = {}
+
+        try:
+            output = json.loads(predicted_answer) if predicted_answer else {}
+            if not isinstance(output, dict):
+                output = {"error": "predicted_answer was not a JSON object", "people": []}
+        except json.JSONDecodeError:
+            output = {"error": "predicted_answer was not valid JSON", "people": []}
+
+        scores = score_people_output(output, metadata)
+        has_people = scores["has_people"] >= 1.0
+
+        judge_scores = await run_people_llm_judges(
+            question, output, metadata, model=self.model
+        )
+
+        # Do not map has_people → is_correct: that confuses analyzed "accuracy"
+        # with gold-answer benchmarks. Row-level label is has_people / no_people.
+        return {
+            "grade": "has_people" if has_people else "no_people",
+            "score_name": "has_people" if has_people else "no_people",
+            "is_correct": has_people,
+            "is_incorrect": not has_people,
+            "score": scores["field_fill"],
+            "has_people": scores["has_people"],
+            "person_count": scores["person_count"],
+            "field_fill": scores["field_fill"],
+            "persona_field_fill": scores["persona_field_fill"],
+            "persona": scores.get("persona"),
+            "question": question,
+            **judge_scores,
         }

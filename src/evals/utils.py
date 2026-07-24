@@ -36,12 +36,40 @@ def get_dataset(dataset_name):
         dataset.df["answer"] = dataset.df.apply(
             lambda row: _decrypt(row["answer"], row["canary"]), axis=1
         )
+    if dataset_name == "people_search":
+        # CSV answer column is intentionally empty (no gold answers). Build scoring
+        # metadata JSON from the dedicated columns for the sampler/grader.
+        dataset.df["answer"] = dataset.df.apply(_people_search_metadata_json, axis=1)
 
     if dataset.df is None:
         raise ValueError(
             f"Failed to initialize df for {dataset_name} and csv_path {dataset.csv_path}"
         )
     return dataset
+
+
+def _people_search_metadata_json(row: pd.Series) -> str:
+    def _cell(key: str):
+        if key not in row.index:
+            return None
+        value = row[key]
+        if value is None or (isinstance(value, float) and pd.isna(value)):
+            return None
+        if isinstance(value, str) and not value.strip():
+            return None
+        return value if not isinstance(value, str) else value.strip()
+
+    return json.dumps(
+        {
+            "benchmark_id": _cell("benchmark_id"),
+            "persona": _cell("persona"),
+            "persona_slug": _cell("persona_slug"),
+            "query_type": _cell("query_type"),
+            "person_name": _cell("person_name"),
+            "company": _cell("company"),
+        },
+        ensure_ascii=False,
+    )
 
 
 def get_sampler(sampler_name: str):

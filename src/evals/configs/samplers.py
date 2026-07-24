@@ -22,6 +22,7 @@ from evals.samplers.applied_samplers.you_search_sampler import (
     YouResearchSampler,
     YouSearchSnippetsSampler,
 )
+from evals.samplers.applied_samplers.people_search_sampler import HttpPeopleSearchSampler
 
 
 SAMPLERS = [
@@ -148,10 +149,24 @@ SAMPLERS = [
         search_effort="high",
         timeout=3000,
     ),
+    # Generic people-search HTTP endpoint (scorer-based; excluded from defaults)
+    HttpPeopleSearchSampler(
+        sampler_name="http_people_search",
+        api_url=os.getenv("PEOPLE_SEARCH_API_URL"),
+        api_key=os.getenv("PEOPLE_SEARCH_API_KEY"),
+        timeout=120,
+        max_concurrency=5,
+    ),
 ]
 
-# Samplers excluded from default runs due to high cost or long latency
-EXCLUDE_KEYWORDS = ["research", "parallel_pro", "parallel_ultra", 'perplexity_finance_historical_lookup']
+# Samplers excluded from default runs due to high cost, long latency, or special datasets
+EXCLUDE_KEYWORDS = [
+    "research",
+    "parallel_pro",
+    "parallel_ultra",
+    "perplexity_finance_historical_lookup",
+    "http_people_search",
+]
 
 NON_RESEARCH_SAMPLERS = [
     sampler.sampler_name

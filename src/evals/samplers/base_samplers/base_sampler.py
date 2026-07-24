@@ -143,16 +143,35 @@ class BaseSampler(ABC):
             generated_answer = "FAILED"
             logging.exception(e)
 
-        # Evaluated synthesized results against ground truth
+        # Evaluate response (gold-answer graders or scorer-based datasets)
+        evaluation_extras: Dict[str, Any] = {}
         try:
             if generated_answer == "FAILED":
                 # Failed to get an answer, do not grade
                 evaluation_result = "FAILED"
-            elif ground_truth:
+            elif ground_truth or not getattr(dataset, "requires_ground_truth", True):
                 evaluation_result_dict = await self.__evaluate_response(
                     query, ground_truth, generated_answer, dataset
                 )
                 evaluation_result = evaluation_result_dict["score_name"]
+                for key in (
+                    "score",
+                    "has_people",
+                    "person_count",
+                    "field_fill",
+                    "persona_field_fill",
+                    "persona",
+                    "judge_overall",
+                    "judge_overall_label",
+                    "judge_persona",
+                    "judge_persona_label",
+                    "judge_persona_slug",
+                    "f1",
+                    "precision",
+                    "recall",
+                ):
+                    if key in evaluation_result_dict:
+                        evaluation_extras[key] = evaluation_result_dict[key]
             else:
                 raise ValueError("Ground truth is missing")
         except Exception as e:
@@ -167,6 +186,7 @@ class BaseSampler(ABC):
             "evaluation_result": evaluation_result,
             "generated_answer": generated_answer,
             "ground_truth": ground_truth,
+            **evaluation_extras,
             # Commenting these out because they are bloating the results files. Feel free to uncomment if you want extra metadata.
             # "raw_results": raw_results,
             # "formatted_results": formatted_results,

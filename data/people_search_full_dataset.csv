@@ -1,0 +1,241 @@
+benchmark_id,problem,answer,persona,persona_slug,query_type,person_name,company
+fp_001,"Find work history and current role for William McKinnerney, who works at CoreWeave.",,Recruiter / Talent Sourcer,recruiter,enrichment,William McKinnerney,CoreWeave
+fp_002,"Find work history and current role for Sam Branch, who works at First National Community Bank.",,Recruiter / Talent Sourcer,recruiter,enrichment,Sam Branch,First National Community Bank
+fp_003,"Find work history and current role for Joseph Reuben, MD, who works at Overland Park Regional Medical Center.",,Recruiter / Talent Sourcer,recruiter,enrichment,"Joseph Reuben, MD",Overland Park Regional Medical Center
+fp_004,"Find work history and current role for Daniel R. Adler, who works at Gibson Dunn.",,Recruiter / Talent Sourcer,recruiter,enrichment,Daniel R. Adler,Gibson Dunn
+fp_005,"Find work history and current role for Brandon R. Thompson, who works at Jenner & Block.",,Recruiter / Talent Sourcer,recruiter,enrichment,Brandon R. Thompson,Jenner & Block
+fp_006,"Find work history and current role for Lisa Graver, who works at Alvotech.",,Recruiter / Talent Sourcer,recruiter,enrichment,Lisa Graver,Alvotech
+fp_007,"Find work history and current role for Dr. Scott Drutman, who works at Enara Bio.",,Recruiter / Talent Sourcer,recruiter,enrichment,Dr. Scott Drutman,Enara Bio
+fp_008,"Find work history and current role for Chris Peters, P.E., S.E., who works at Michael Baker International.",,Recruiter / Talent Sourcer,recruiter,enrichment,"Chris Peters, P.E., S.E.",Michael Baker International
+fp_009,"Find work history and current role for Andrew Bulluck, PE, who works at Nobis Group.",,Recruiter / Talent Sourcer,recruiter,enrichment,"Andrew Bulluck, PE",Nobis Group
+fp_010,"Find work history and current role for Helen Ayotte, who works at New Jersey Natural Gas.",,Recruiter / Talent Sourcer,recruiter,enrichment,Helen Ayotte,New Jersey Natural Gas
+fp_011,"Find work history and current role for Ari Sulby, who works at Semiconductor Industry Association.",,Recruiter / Talent Sourcer,recruiter,enrichment,Ari Sulby,Semiconductor Industry Association
+fp_012,"Find work history and current role for Martin Dowling, who works at Altibox Carrier.",,Recruiter / Talent Sourcer,recruiter,enrichment,Martin Dowling,Altibox Carrier
+fp_013,"Find work history and current role for Nicholas A. Charles, who works at Cutter Aviation.",,Recruiter / Talent Sourcer,recruiter,enrichment,Nicholas A. Charles,Cutter Aviation
+fp_014,"Find work history and current role for Deborah Gorgulho, who works at Soledad Unified School District.",,Recruiter / Talent Sourcer,recruiter,enrichment,Deborah Gorgulho,Soledad Unified School District
+fp_015,"Find work history and current role for Nathan Mustafa, who works at City of Riverside.",,Recruiter / Talent Sourcer,recruiter,enrichment,Nathan Mustafa,City of Riverside
+fp_016,Find backend engineers with Kubernetes experience at cloud infrastructure companies in Austin.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_017,Find mechanical or engineering leads at family-owned metal fabrication shops in the Midwest.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_018,Find architects with FAIA credentials at boutique firms in the Southeast US.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_019,Find hospital CFOs or VPs of finance open to new opportunities.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_020,Find corporate attorneys with CFIUS or national security law experience in DC.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_021,Find M&A partners at Am Law 100 firms in London.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_022,Find environmental litigation attorneys based in Orange County.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_023,Find product managers at major consumer tech companies with biology or life sciences backgrounds.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_024,Find engineering product managers who graduated from University of Oregon.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_025,Find CIOs at mid-size regional hospital systems.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_026,Find special counsel with FCC enforcement backgrounds at large law firms.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_027,Find tax partners with UK taxation expertise in London.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_028,Find appellate litigators with Supreme Court experience in Los Angeles.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_029,Find civil engineers or project leads at small manufacturing companies in Ohio.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_030,Find demand generation leaders at Series B-funded SaaS startups.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_031,Find architecture firm principals who've won AIA design awards.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_032,Find UT Austin computer science alumni now working at infrastructure startups.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_033,Find nurse executives with DNP credentials open to CNO roles.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_034,Find hospital chief medical officers within HCA-affiliated systems.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_035,Find engineers at AI infrastructure startups with GPU or data center experience.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_036,Find structural or civil engineers at boutique architecture practices.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_037,Find fourth-generation leaders at family-owned manufacturing businesses.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_038,Find engineering leads at metal fabrication or industrial manufacturing companies.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_039,Find CNOs with perioperative or surgical nursing backgrounds.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_040,Find pharmacy directors with PharmD credentials open to health-system leadership roles.,,Recruiter / Talent Sourcer,recruiter,search,,
+fp_041,Find contact information for Alla Oks who works at Foley.,,SDR / BDR,sdr,enrichment,Alla Oks,Foley
+fp_042,Find contact information for Amanda L. Engles who works at CB Financial Services / Community Bank.,,SDR / BDR,sdr,enrichment,Amanda L. Engles,CB Financial Services / Community Bank
+fp_043,Find contact information for Richard Dabruzzo who works at WVU Health System.,,SDR / BDR,sdr,enrichment,Richard Dabruzzo,WVU Health System
+fp_044,Find contact information for Angie Longing who works at Conway Regional Health System.,,SDR / BDR,sdr,enrichment,Angie Longing,Conway Regional Health System
+fp_045,Find contact information for Stephanie McDonell who works at United Regional.,,SDR / BDR,sdr,enrichment,Stephanie McDonell,United Regional
+fp_046,Find contact information for Chris Molloy who works at BioIndustry Association.,,SDR / BDR,sdr,enrichment,Chris Molloy,BioIndustry Association
+fp_047,Find contact information for Eugene Zollinger who works at Assurity.,,SDR / BDR,sdr,enrichment,Eugene Zollinger,Assurity
+fp_048,Find contact information for Michael J. Cusack who works at Alliant Insurance Services.,,SDR / BDR,sdr,enrichment,Michael J. Cusack,Alliant Insurance Services
+fp_049,Find contact information for Nicholas Gesue who works at Greystone.,,SDR / BDR,sdr,enrichment,Nicholas Gesue,Greystone
+fp_050,Find contact information for Allison Davies who works at NAI Hallmark.,,SDR / BDR,sdr,enrichment,Allison Davies,NAI Hallmark
+fp_051,Find contact information for Jim Filter who works at Schneider.,,SDR / BDR,sdr,enrichment,Jim Filter,Schneider
+fp_052,Find contact information for Ian Ferry who works at Grocery Outlet.,,SDR / BDR,sdr,enrichment,Ian Ferry,Grocery Outlet
+fp_053,Find contact information for Marissa Ghesquiere who works at Sotheby's International Realty.,,SDR / BDR,sdr,enrichment,Marissa Ghesquiere,Sotheby's International Realty
+fp_054,Find contact information for Randy Macchi who works at Houston Public Works.,,SDR / BDR,sdr,enrichment,Randy Macchi,Houston Public Works
+fp_055,Find contact information for Matt Severson who works at Premier Cooperative.,,SDR / BDR,sdr,enrichment,Matt Severson,Premier Cooperative
+fp_056,Find newly hired VPs of Marketing at compliance and safety SaaS companies to prospect.,,SDR / BDR,sdr,search,,
+fp_057,Find CFOs at bank holding companies who were promoted in the last 90 days.,,SDR / BDR,sdr,search,,
+fp_058,Find boutique architecture firm founders in the Southeast US as prospects.,,SDR / BDR,sdr,search,,
+fp_059,Find CNOs at regional hospitals who just started their roles.,,SDR / BDR,sdr,search,,
+fp_060,Find CIOs at mid-size hospital systems investing in smart-room technology.,,SDR / BDR,sdr,search,,
+fp_061,Find law firm partners in DC who focus on regulatory and compliance work.,,SDR / BDR,sdr,search,,
+fp_062,Find M&A partners at large law firms who recently made partner.,,SDR / BDR,sdr,search,,
+fp_063,Find engineering leaders at cloud infrastructure startups in Austin.,,SDR / BDR,sdr,search,,
+fp_064,Find healthcare CEOs at nonprofit rural health systems.,,SDR / BDR,sdr,search,,
+fp_065,Find newly promoted partners at large law firms across all offices.,,SDR / BDR,sdr,search,,
+fp_066,Find family-owned manufacturing companies with fourth-generation leadership.,,SDR / BDR,sdr,search,,
+fp_067,Find marketing leaders who moved from biotech SaaS to compliance tech.,,SDR / BDR,sdr,search,,
+fp_068,Find hospital CMOs within HCA-affiliated regional medical centers.,,SDR / BDR,sdr,search,,
+fp_069,Find architecture firms that recently won AIA Design Excellence awards.,,SDR / BDR,sdr,search,,
+fp_070,Find engineering VPs at GPU cloud or AI infrastructure companies.,,SDR / BDR,sdr,search,,
+fp_071,Find newly appointed presidents/CEOs at regional health systems.,,SDR / BDR,sdr,search,,
+fp_072,Find tax partners at global law firms with UK/EU tax specialization.,,SDR / BDR,sdr,search,,
+fp_073,Find nurse executives newly promoted to CNO at community hospitals.,,SDR / BDR,sdr,search,,
+fp_074,Find metal fabrication or industrial manufacturing companies open to new vendor relationships.,,SDR / BDR,sdr,search,,
+fp_075,Find compliance officers at mid-size regional banks.,,SDR / BDR,sdr,search,,
+fp_076,Find product marketers at Series A/B SaaS startups focused on regulated industries.,,SDR / BDR,sdr,search,,
+fp_077,Find national security or CFIUS-focused attorneys at DC law firms.,,SDR / BDR,sdr,search,,
+fp_078,Find demand generation VPs who've scaled GTM at compliance-focused platforms.,,SDR / BDR,sdr,search,,
+fp_079,Find CIOs or VPs of technology at regional healthcare nonprofits.,,SDR / BDR,sdr,search,,
+fp_080,Find newly elevated communications/telecom regulatory counsel at major firms.,,SDR / BDR,sdr,search,,
+fp_081,"Verify the identity and employment of Anne Marie Duvall Decker, FAIA, who works at Duvall Decker Architects.",,Background Check / Compliance Analyst,compliance,enrichment,"Anne Marie Duvall Decker, FAIA",Duvall Decker Architects
+fp_082,"Verify the identity and employment of Ivan A. Schlager, who works at Kirkland & Ellis LLP.",,Background Check / Compliance Analyst,compliance,enrichment,Ivan A. Schlager,Kirkland & Ellis LLP
+fp_083,"Verify the identity and employment of Ella Duggan, who works at The Merrimack.",,Background Check / Compliance Analyst,compliance,enrichment,Ella Duggan,The Merrimack
+fp_084,"Verify the identity and employment of Mary Ann Keener, BSN, RN, who works at Great Bend Regional Hospital.",,Background Check / Compliance Analyst,compliance,enrichment,"Mary Ann Keener, BSN, RN",Great Bend Regional Hospital
+fp_085,"Verify the identity and employment of Tonya Washington, DNP, RN, who works at Cedar Hill Regional Medical Center GW Health.",,Background Check / Compliance Analyst,compliance,enrichment,"Tonya Washington, DNP, RN",Cedar Hill Regional Medical Center GW Health
+fp_086,"Verify the identity and employment of Joe Franklin, JD, PhD, who works at Biotechnology Innovation Organization (BIO).",,Background Check / Compliance Analyst,compliance,enrichment,"Joe Franklin, JD, PhD",Biotechnology Innovation Organization (BIO)
+fp_087,"Verify the identity and employment of Jared Strong, who works at Inszone Insurance Services.",,Background Check / Compliance Analyst,compliance,enrichment,Jared Strong,Inszone Insurance Services
+fp_088,"Verify the identity and employment of John Myers, P.E., who works at Menard USA.",,Background Check / Compliance Analyst,compliance,enrichment,"John Myers, P.E.",Menard USA
+fp_089,"Verify the identity and employment of John Frazier, who works at Baker Katz.",,Background Check / Compliance Analyst,compliance,enrichment,John Frazier,Baker Katz
+fp_090,"Verify the identity and employment of Lisa Edison-Smith, who works at North Dakota Ethics Commission.",,Background Check / Compliance Analyst,compliance,enrichment,Lisa Edison-Smith,North Dakota Ethics Commission
+fp_091,"Verify the identity and employment of Jeffrey Akers, PharmD, who works at UC Health.",,Background Check / Compliance Analyst,compliance,enrichment,"Jeffrey Akers, PharmD",UC Health
+fp_092,"Verify the identity and employment of Melissa Chase, PharmD, who works at Valley Children's Healthcare.",,Background Check / Compliance Analyst,compliance,enrichment,"Melissa Chase, PharmD",Valley Children's Healthcare
+fp_093,"Verify the identity and employment of John Coggins, who works at Mary Washington Healthcare.",,Background Check / Compliance Analyst,compliance,enrichment,John Coggins,Mary Washington Healthcare
+fp_094,"Verify the identity and employment of Giancarlo Ferro, who works at euNetworks.",,Background Check / Compliance Analyst,compliance,enrichment,Giancarlo Ferro,euNetworks
+fp_095,"Verify the identity and employment of Keith Thomas, who works at Cabell County Schools.",,Background Check / Compliance Analyst,compliance,enrichment,Keith Thomas,Cabell County Schools
+fp_096,Verify bar admission and current firm for attorneys practicing CFIUS law in DC.,,Background Check / Compliance Analyst,compliance,search,,
+fp_097,Confirm licensure status for FAIA-credentialed architects in Mississippi.,,Background Check / Compliance Analyst,compliance,search,,
+fp_098,Confirm registration and standing for partners at Am Law 100 firms in London.,,Background Check / Compliance Analyst,compliance,search,,
+fp_099,Verify professional licensure for registered nurses newly named to CNO roles.,,Background Check / Compliance Analyst,compliance,search,,
+fp_100,Cross-check public regulatory filings tied to attorneys with national security practices.,,Background Check / Compliance Analyst,compliance,search,,
+fp_101,Verify current employer and title for engineers at cloud infrastructure companies.,,Background Check / Compliance Analyst,compliance,search,,
+fp_102,Confirm AIA state chapter membership status for architecture firm principals.,,Background Check / Compliance Analyst,compliance,search,,
+fp_103,Verify medical licensure for physicians newly named chief medical officer.,,Background Check / Compliance Analyst,compliance,search,,
+fp_104,Confirm bar admission status for special counsel hires at major law firms.,,Background Check / Compliance Analyst,compliance,search,,
+fp_105,Verify professional credentials for tax law partners practicing UK taxation.,,Background Check / Compliance Analyst,compliance,search,,
+fp_106,Cross-check licensure for civil/structural engineers tied to manufacturing firms.,,Background Check / Compliance Analyst,compliance,search,,
+fp_107,Confirm employment history for hospital CIOs newly appointed in 2026.,,Background Check / Compliance Analyst,compliance,search,,
+fp_108,Verify current title and firm for environmental litigation attorneys in California.,,Background Check / Compliance Analyst,compliance,search,,
+fp_109,Confirm bar admission for appellate litigators recently elevated to partner.,,Background Check / Compliance Analyst,compliance,search,,
+fp_110,Confirm licensure status for architecture principals with public sector project history.,,Background Check / Compliance Analyst,compliance,search,,
+fp_111,Verify employment history for CFOs at bank holding companies.,,Background Check / Compliance Analyst,compliance,search,,
+fp_112,Cross-check public regulatory disclosures for partners in energy-sector litigation.,,Background Check / Compliance Analyst,compliance,search,,
+fp_113,Confirm professional standing for attorneys practicing mass tort litigation.,,Background Check / Compliance Analyst,compliance,search,,
+fp_114,Verify current title for engineering leads at data center/cloud infrastructure firms.,,Background Check / Compliance Analyst,compliance,search,,
+fp_115,Confirm licensure for physicians serving as CMO at HCA-affiliated hospitals.,,Background Check / Compliance Analyst,compliance,search,,
+fp_116,Verify bar registration for partners specializing in aerospace and defense law.,,Background Check / Compliance Analyst,compliance,search,,
+fp_117,Verify credentials for architects listed as AIA Design Excellence award winners.,,Background Check / Compliance Analyst,compliance,search,,
+fp_118,Cross-check licensure status for RNs newly promoted into nursing leadership.,,Background Check / Compliance Analyst,compliance,search,,
+fp_119,Confirm current firm for M&A attorneys handling cross-border transactions.,,Background Check / Compliance Analyst,compliance,search,,
+fp_120,Verify current employer and licensure for chief information officers in healthcare.,,Background Check / Compliance Analyst,compliance,search,,
+fp_121,"Find background information on Ben Hickey, who works at Hickey Metal Fabrication.",,Journalist / Investigative Researcher,journalist,enrichment,Ben Hickey,Hickey Metal Fabrication
+fp_122,"Find background information on Paige Martin, who works at TowneBank.",,Journalist / Investigative Researcher,journalist,enrichment,Paige Martin,TowneBank
+fp_123,"Find background information on Renee Clancy, who works at Martha's Vineyard Hospital.",,Journalist / Investigative Researcher,journalist,enrichment,Renee Clancy,Martha's Vineyard Hospital
+fp_124,"Find background information on Ken Burgess, who works at Rural Health Services.",,Journalist / Investigative Researcher,journalist,enrichment,Ken Burgess,Rural Health Services
+fp_125,"Find background information on Harald Hampel, who works at Bristol Myers Squibb.",,Journalist / Investigative Researcher,journalist,enrichment,Harald Hampel,Bristol Myers Squibb
+fp_126,"Find background information on Bo Rode Hansen, who works at LIfT BioSciences.",,Journalist / Investigative Researcher,journalist,enrichment,Bo Rode Hansen,LIfT BioSciences
+fp_127,"Find background information on Eric Hegarty, who works at LevRose Commercial Real Estate.",,Journalist / Investigative Researcher,journalist,enrichment,Eric Hegarty,LevRose Commercial Real Estate
+fp_128,"Find background information on Michael Massey, who works at Worth Credit Union.",,Journalist / Investigative Researcher,journalist,enrichment,Michael Massey,Worth Credit Union
+fp_129,"Find background information on Chuck Casassa, who works at Market Basket.",,Journalist / Investigative Researcher,journalist,enrichment,Chuck Casassa,Market Basket
+fp_130,"Find background information on Todd Schnuck Jr., who works at Schnuck Markets.",,Journalist / Investigative Researcher,journalist,enrichment,Todd Schnuck Jr.,Schnuck Markets
+fp_131,"Find background information on Bruce Robinson, who works at Stater Bros.",,Journalist / Investigative Researcher,journalist,enrichment,Bruce Robinson,Stater Bros.
+fp_132,"Find background information on Jose Coll, who works at Western New Mexico University.",,Journalist / Investigative Researcher,journalist,enrichment,Jose Coll,Western New Mexico University
+fp_133,"Find background information on Michel Denis, who works at Daher.",,Journalist / Investigative Researcher,journalist,enrichment,Michel Denis,Daher
+fp_134,"Find background information on Lauren Thompson, who works at Friends of Flight 93 National Memorial.",,Journalist / Investigative Researcher,journalist,enrichment,Lauren Thompson,Friends of Flight 93 National Memorial
+fp_135,"Find background information on Amy Zeng, who works at Chapman University.",,Journalist / Investigative Researcher,journalist,enrichment,Amy Zeng,Chapman University
+fp_136,Find recently appointed board members at national security policy nonprofits.,,Journalist / Investigative Researcher,journalist,search,,
+fp_137,Find architects who've won AIA awards for public/civic projects in the South.,,Journalist / Investigative Researcher,journalist,search,,
+fp_138,Find hospital executives newly appointed amid regional health system consolidation.,,Journalist / Investigative Researcher,journalist,search,,
+fp_139,Find family-owned manufacturers navigating succession to a new generation.,,Journalist / Investigative Researcher,journalist,search,,
+fp_140,Find M&A partners involved in recent private equity infrastructure deals.,,Journalist / Investigative Researcher,journalist,search,,
+fp_141,Find nonprofit health system CEOs appointed amid rural hospital closures.,,Journalist / Investigative Researcher,journalist,search,,
+fp_142,"Find tech product managers with unconventional academic backgrounds (e.g., biology).",,Journalist / Investigative Researcher,journalist,search,,
+fp_143,Find attorneys with CFIUS expertise commenting on foreign investment reviews.,,Journalist / Investigative Researcher,journalist,search,,
+fp_144,Find hospital CIOs piloting new patient-care technology.,,Journalist / Investigative Researcher,journalist,search,,
+fp_145,Find architecture firms recognized for public-good or social-impact design work.,,Journalist / Investigative Researcher,journalist,search,,
+fp_146,Find recently elevated law firm partners in communications and internet law.,,Journalist / Investigative Researcher,journalist,search,,
+fp_147,Find university alumni featured in career spotlight pieces now at major tech firms.,,Journalist / Investigative Researcher,journalist,search,,
+fp_148,Find manufacturing company leaders discussing tariffs or supply chain disruption.,,Journalist / Investigative Researcher,journalist,search,,
+fp_149,Find nurse executives speaking publicly about hospital staffing crises.,,Journalist / Investigative Researcher,journalist,search,,
+fp_150,Find newly appointed nonprofit CEOs discussing community health access.,,Journalist / Investigative Researcher,journalist,search,,
+fp_151,Find engineering leaders discussing data center energy consumption.,,Journalist / Investigative Researcher,journalist,search,,
+fp_152,Find architecture principals serving on state AIA leadership boards.,,Journalist / Investigative Researcher,journalist,search,,
+fp_153,Find hospital system presidents discussing recent leadership transitions.,,Journalist / Investigative Researcher,journalist,search,,
+fp_154,Find fourth-generation family business owners discussing generational transitions.,,Journalist / Investigative Researcher,journalist,search,,
+fp_155,Find hospital CIOs discussing AI adoption in patient care.,,Journalist / Investigative Researcher,journalist,search,,
+fp_156,Find tech companies' product leads discussing GPU/cloud infrastructure growth.,,Journalist / Investigative Researcher,journalist,search,,
+fp_157,Find manufacturing executives discussed in regional business press profiles.,,Journalist / Investigative Researcher,journalist,search,,
+fp_158,Find nonprofit health CEOs discussed in coverage of rural healthcare access.,,Journalist / Investigative Researcher,journalist,search,,
+fp_159,Find architecture award winners profiled in trade publications like Architizer.,,Journalist / Investigative Researcher,journalist,search,,
+fp_160,Find grocery industry executives discussed in coverage of leadership transitions.,,Journalist / Investigative Researcher,journalist,search,,
+fp_161,"Find contact information for Ann Diep, who works at Apple.",,Event Organizer / Community Manager,events,enrichment,Ann Diep,Apple
+fp_162,"Find contact information for Sandy Starnes, who works at First Community Bank.",,Event Organizer / Community Manager,events,enrichment,Sandy Starnes,First Community Bank
+fp_163,"Find contact information for Angela Ross, BSN, RN, who works at Iredell Health System.",,Event Organizer / Community Manager,events,enrichment,"Angela Ross, BSN, RN",Iredell Health System
+fp_164,"Find contact information for Joe Webster, who works at JP Insurance Group.",,Event Organizer / Community Manager,events,enrichment,Joe Webster,JP Insurance Group
+fp_165,"Find contact information for Randy Fink, who works at Colliers.",,Event Organizer / Community Manager,events,enrichment,Randy Fink,Colliers
+fp_166,"Find contact information for Andee Robb, who works at Marcus & Millichap.",,Event Organizer / Community Manager,events,enrichment,Andee Robb,Marcus & Millichap
+fp_167,"Find contact information for Todd Harrison, who works at Alfred University.",,Event Organizer / Community Manager,events,enrichment,Todd Harrison,Alfred University
+fp_168,"Find contact information for Remzi Arpaci-Dusseau, who works at University of Wisconsin-Madison.",,Event Organizer / Community Manager,events,enrichment,Remzi Arpaci-Dusseau,University of Wisconsin-Madison
+fp_169,"Find contact information for Brian Proctor, who works at Leeds Hospitality Group.",,Event Organizer / Community Manager,events,enrichment,Brian Proctor,Leeds Hospitality Group
+fp_170,"Find contact information for Nikhil Heda, who works at G6 Hospitality.",,Event Organizer / Community Manager,events,enrichment,Nikhil Heda,G6 Hospitality
+fp_171,"Find contact information for Vukie Mpofu, who works at Nashville Predators.",,Event Organizer / Community Manager,events,enrichment,Vukie Mpofu,Nashville Predators
+fp_172,"Find contact information for Paul Cox, who works at Food City.",,Event Organizer / Community Manager,events,enrichment,Paul Cox,Food City
+fp_173,"Find contact information for Brian Knifong, who works at Agtegra Cooperative.",,Event Organizer / Community Manager,events,enrichment,Brian Knifong,Agtegra Cooperative
+fp_174,"Find contact information for Nicholas Vescovo, who works at Youth Villages.",,Event Organizer / Community Manager,events,enrichment,Nicholas Vescovo,Youth Villages
+fp_175,"Find contact information for Susan Field, who works at Academy School District 20.",,Event Organizer / Community Manager,events,enrichment,Susan Field,Academy School District 20
+fp_176,Find University of Oregon Class of 2015 biology alumni now working in tech product roles.,,Event Organizer / Community Manager,events,search,,
+fp_177,Find nursing school alumni who became chief nursing officers in the past 12 months.,,Event Organizer / Community Manager,events,search,,
+fp_178,"Find donors who gave $5,000 or more to a hospital foundation capital campaign but haven't donated in the past 24 months.",,Event Organizer / Community Manager,events,search,,
+fp_179,Find AIA chapter members who haven't attended a chapter event in the past 18 months.,,Event Organizer / Community Manager,events,search,,
+fp_180,"Find donors who gave $1,000 or more to an arts organization's 2025 annual fund.",,Event Organizer / Community Manager,events,search,,
+fp_181,Find credit union association members whose dues lapsed in the past 6 months.,,Event Organizer / Community Manager,events,search,,
+fp_182,Find founding donors from a university's 2015 capital campaign to invite to a 10-year building dedication.,,Event Organizer / Community Manager,events,search,,
+fp_183,Find past fintech conference speakers from compliance SaaS companies to invite for 2026.,,Event Organizer / Community Manager,events,search,,
+fp_184,Find hospital CNOs in the Southeast who'd be strong panelists for a staffing-shortage panel.,,Event Organizer / Community Manager,events,search,,
+fp_185,Find biotech founders from Series A or B companies who could speak on drug development timelines.,,Event Organizer / Community Manager,events,search,,
+fp_186,Find licensed PEs who've published on infrastructure resilience for a civil engineering symposium.,,Event Organizer / Community Manager,events,search,,
+fp_187,Find community banks that sponsored a regional banking conference in the past 3 years.,,Event Organizer / Community Manager,events,search,,
+fp_188,Find insurance carriers that have sponsored events for a regional chamber of commerce.,,Event Organizer / Community Manager,events,search,,
+fp_189,Find regional hospital systems that sponsor nursing conferences in Ohio.,,Event Organizer / Community Manager,events,search,,
+fp_190,Find RNs with 10+ years tenure at regional hospitals for a nursing excellence award nomination.,,Event Organizer / Community Manager,events,search,,
+fp_191,Find PE-licensed engineers under 40 for an emerging civil engineer award nomination.,,Event Organizer / Community Manager,events,search,,
+fp_192,Find nonprofit executive directors in the Pacific Northwest who might join a hospital foundation board.,,Event Organizer / Community Manager,events,search,,
+fp_193,Find hospital CFOs or VPs of Finance in the Midwest open to serving on a healthcare foundation board.,,Event Organizer / Community Manager,events,search,,
+fp_194,Find attorneys with prior nonprofit board experience for a legal aid organization's board.,,Event Organizer / Community Manager,events,search,,
+fp_195,Find manufacturing CEOs from family-owned businesses in the Midwest for a keynote panel.,,Event Organizer / Community Manager,events,search,,
+fp_196,Find community bank CFOs in Texas who could keynote a financial literacy event.,,Event Organizer / Community Manager,events,search,,
+fp_197,Find insurance regional VPs for a risk management conference keynote slot.,,Event Organizer / Community Manager,events,search,,
+fp_198,Find alumni engineers willing to mentor current engineering students.,,Event Organizer / Community Manager,events,search,,
+fp_199,Find retired RNs or nurse executives interested in volunteering at a hospital foundation gala.,,Event Organizer / Community Manager,events,search,,
+fp_200,Find law firm associates in Chicago interested in volunteering for a bar foundation's pro bono night.,,Event Organizer / Community Manager,events,search,,
+fp_201,Find Obi Felten's professional background and prior ventures before founding Flourish Labs.,,VC / PE / Investor,investor,enrichment,Obi Felten,Flourish Labs
+fp_202,Find Travis Betters' ownership history and background as founder of Brothers International.,,VC / PE / Investor,investor,enrichment,Travis Betters,Brothers International
+fp_203,Find Matt Rojas' prior work experience and Stanford research background before co-founding Lantern.,,VC / PE / Investor,investor,enrichment,Matt Rojas,Lantern
+fp_204,Find Des Traynor's background and prior roles before co-founding Intercom.,,VC / PE / Investor,investor,enrichment,Des Traynor,Intercom
+fp_205,"Find John Maraganore's executive history, including his time as CEO of Alnylam, before founding City Therapeutics.",,VC / PE / Investor,investor,enrichment,John Maraganore,City Therapeutics
+fp_206,Find Logan Freeman's professional background as founder of Midwest CRE Advisors.,,VC / PE / Investor,investor,enrichment,Logan Freeman,Midwest CRE Advisors
+fp_207,Find Gabriel Jones' professional background and MBA history before founding Proprio.,,VC / PE / Investor,investor,enrichment,Gabriel Jones,Proprio
+fp_208,Find Samir Manjure's prior experience at Microsoft before co-founding KenSci.,,VC / PE / Investor,investor,enrichment,Samir Manjure,KenSci
+fp_209,Find Doug Cusick's professional background as CEO of T4M.,,VC / PE / Investor,investor,enrichment,Doug Cusick,T4M
+fp_210,Find Jenny Duan's academic and professional background before co-founding Clair Health.,,VC / PE / Investor,investor,enrichment,Jenny Duan,Clair Health
+fp_211,Find Dallen Allred's professional background as co-founder and CEO of Tava Health.,,VC / PE / Investor,investor,enrichment,Dallen Allred,Tava Health
+fp_212,Find Dr. Shiv Rao's clinical and professional background before founding Abridge.,,VC / PE / Investor,investor,enrichment,Dr. Shiv Rao,Abridge
+fp_213,Find Marty Kuhn's professional background as the first outside CEO of Mike Albert Fleet Solutions.,,VC / PE / Investor,investor,enrichment,Marty Kuhn,Mike Albert Fleet Solutions
+fp_214,Find Kevin Kia's clinical and executive background as Chief Medical Officer of Platinum Dermatology Partners.,,VC / PE / Investor,investor,enrichment,Kevin Kia,Platinum Dermatology Partners
+fp_215,Find Junaid Zaheer's deal history as an Operating Partner at Sun Capital Partners.,,VC / PE / Investor,investor,enrichment,Junaid Zaheer,Sun Capital Partners
+fp_216,Find the founding team and executive bios for Seapoint.,,VC / PE / Investor,investor,search,,
+fp_217,Find the founding team behind Lightspeed portfolio company Pie.,,VC / PE / Investor,investor,search,,
+fp_218,Find the founding team of Arca.,,VC / PE / Investor,investor,search,,
+fp_219,"Find the founding team of 1001, the Dubai- and London-based AI startup.",,VC / PE / Investor,investor,search,,
+fp_220,Find the co-founders of Quantifind.,,VC / PE / Investor,investor,search,,
+fp_221,Find the executive team at Antora Energy.,,VC / PE / Investor,investor,search,,
+fp_222,Find the CFO and finance leadership at BeZero Carbon.,,VC / PE / Investor,investor,search,,
+fp_223,Find limited partners who have invested in Chemistry Ventures' funds.,,VC / PE / Investor,investor,search,,
+fp_224,Find operating partners at THL Partners who serve as board advisors to portfolio companies.,,VC / PE / Investor,investor,search,,
+fp_225,Find the founding team behind Mind Robotics.,,VC / PE / Investor,investor,search,,
+fp_226,Find executives who left Redfin in the past two years to found real estate startups.,,VC / PE / Investor,investor,search,,
+fp_227,Find the management team at Quince following its $500 million Series E.,,VC / PE / Investor,investor,search,,
+fp_228,Find venture partners at Bessemer Venture Partners who focus on enterprise software.,,VC / PE / Investor,investor,search,,
+fp_229,Find former Sequoia Capital investors now operating at other venture firms.,,VC / PE / Investor,investor,search,,
+fp_230,Find the founding teams of companies backed by Lux Capital in the fintech sector.,,VC / PE / Investor,investor,search,,
+fp_231,Find board members of Insight Partners' healthcare services portfolio companies.,,VC / PE / Investor,investor,search,,
+fp_232,Find the executive teams at Bain Capital Ventures' portfolio companies in proptech.,,VC / PE / Investor,investor,search,,
+fp_233,Find angel investors who backed One Raven's seed round.,,VC / PE / Investor,investor,search,,
+fp_234,Find co-founders of companies that raised funding alongside Accel in 2026.,,VC / PE / Investor,investor,search,,
+fp_235,Find the leadership team at a mid-size civil engineering firm for a potential infrastructure-services roll-up.,,VC / PE / Investor,investor,search,,
+fp_236,Find executives at engineering consulting firms who could evaluate an infrastructure acquisition target.,,VC / PE / Investor,investor,search,,
+fp_237,Find the founding teams of companies that exited stealth with fintech products in 2026.,,VC / PE / Investor,investor,search,,
+fp_238,Find operating executives who previously worked at Stripe now available for portfolio company roles.,,VC / PE / Investor,investor,search,,
+fp_239,Find founders who previously exited a company before starting a new venture-backed startup.,,VC / PE / Investor,investor,search,,
+fp_240,Find co-founders of companies that completed reverse mergers to go public in 2026.,,VC / PE / Investor,investor,search,,
