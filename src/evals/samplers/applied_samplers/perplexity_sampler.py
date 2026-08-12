@@ -72,10 +72,10 @@ class PerplexityFinanceSearchSampler(BaseAPISampler):
             "input": query,
             "tools": tools,
             "max_steps": self.max_steps,
-            "max_tokens": self.max_tokens,
+            "max_output_tokens": self.max_tokens,
         }
         if self.reasoning_effort is not None:
-            payload["reasoning_effort"] = self.reasoning_effort
+            payload["reasoning"] = {"effort": self.reasoning_effort}
         return payload
 
     def format_results(self, results: Any) -> str:
