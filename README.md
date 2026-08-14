@@ -141,6 +141,7 @@ or Gemini model and route your request appropriately.
 | Samplers             | `--samplers <names>`        | One or more sampler names (default: All except You.com Research).  |
 | Datasets             | `--datasets <names>`        | One or more datasets (default: `simpleqa`, `frames`).              |
 | Limit                | `--limit <n>`               | Run on at most `n` problems (optional).                            |
+| Seed                 | `--seed <n>`                | Random seed for `--limit` sampling, so two limited runs use the same subset. |
 | Batch size           | `--batch-size 50`           | Number of problems per batch before writing results (default: 50). |
 | Max concurrent tasks | `--max-concurrent-tasks 10` | Concurrency limit (default: 10).                                   |
 | Clean                | `--clean`                   | Remove existing results and run from scratch. (default False)      |

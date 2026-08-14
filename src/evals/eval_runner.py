@@ -52,18 +52,37 @@ def clean_results_folder(results_dir: Path = None):
 
 
 def get_remaining_problems(
-    dataset: datasets.Dataset, sampler: BaseSampler, results_dir: Path = None
+    dataset: datasets.Dataset,
+    sampler: BaseSampler,
+    results_dir: Path = None,
+    problems: pd.DataFrame = None,
 ):
-    """In case of failure, only run problems from the dataset that have not been run yet"""
+    """In case of failure, only run problems from the dataset that have not been run yet.
+
+    Rows previously written as FAILED are treated as not yet run, so a transient
+    error (timeout, rate limit, provider outage) is retried on the next run
+    instead of being permanently excluded from the sampler's results.
+
+    Args:
+        dataset: The dataset being evaluated, used to locate the results file.
+        sampler: The sampler being evaluated.
+        results_dir: Directory holding existing results. Defaults to src/evals/results.
+        problems: Problems to filter. Defaults to dataset.df. Pass explicitly so
+            callers can filter without mutating the shared dataset.
+    """
     if results_dir is None:
         results_dir = get_default_results_dir()
+    if problems is None:
+        problems = dataset.df
     sampler_results_filepath = get_sampler_filepath(sampler, dataset, results_dir)
     if os.path.isdir(results_dir) and os.path.isfile(sampler_results_filepath):
         sampler_results = pd.read_csv(sampler_results_filepath)
-        return dataset.df[
-            ~dataset.df["problem"].isin(sampler_results["query"].tolist())
-        ]
-    return dataset.df
+        completed = sampler_results[
+            (sampler_results["evaluation_result"] != "FAILED")
+            & (sampler_results["generated_answer"] != "FAILED")
+        ]["query"].tolist()
+        return problems[~problems["problem"].isin(completed)]
+    return problems
 
 
 async def process_query_with_semaphore(
@@ -107,12 +126,21 @@ async def run_evals(
         if not dataset:
             raise ValueError(f"Dataset {dataset_name} not found")
         if args.limit:
-            dataset.df = dataset.df.sample(n=args.limit)
+            dataset.df = dataset.df.sample(
+                n=args.limit, random_state=getattr(args, "seed", None)
+            )
+        # Snapshot the problem set once per dataset. Per-sampler filtering below
+        # must not narrow this, or each sampler would inherit the previous
+        # sampler's already-completed set and silently run fewer problems.
+        dataset_problems = dataset.df
         for sampler_name in args.samplers:
             sampler = evals_utils.get_sampler(sampler_name)
             # Only run on problems that are not already in results folder
             remaining_problems = get_remaining_problems(
-                dataset=dataset, sampler=sampler, results_dir=results_dir
+                dataset=dataset,
+                sampler=sampler,
+                results_dir=results_dir,
+                problems=dataset_problems,
             )
             if len(remaining_problems) == 0:
                 logging.info(
@@ -126,10 +154,9 @@ async def run_evals(
             logging.info(
                 f"Running sampler {sampler.sampler_name} on dataset {dataset_name} on {len(remaining_problems)} problems"
             )
-            dataset.df = remaining_problems
 
             with tqdm(
-                total=len(dataset.df),
+                total=len(remaining_problems),
                 desc=f"Running sampler: {sampler.sampler_name} for dataset {dataset.dataset_name}",
                 unit="queries",
             ) as pbar:
@@ -137,7 +164,7 @@ async def run_evals(
                 semaphore = asyncio.Semaphore(max_tasks)
                 tasks = []
                 # Create tasks all at once
-                for _, row in dataset.df.iterrows():
+                for _, row in remaining_problems.iterrows():
                     query = row["problem"]
                     ground_truth = row["answer"]
                     task = asyncio.create_task(
@@ -233,6 +260,13 @@ async def main():
         help="Determines the amount of problems to evaluate against",
     )
     parser.add_argument(
+        "--seed",
+        default=None,
+        type=int,
+        help="Random seed used when --limit samples a subset of problems. Set this to "
+        "make two limited runs comparable; without it each run samples a different subset.",
+    )
+    parser.add_argument(
         "--batch-size",
         default=50,
         type=int,
@@ -246,10 +280,9 @@ async def main():
     )
     parser.add_argument(
         "--clean",
-        default=False,
-        type=str,
-        help="If set to True, wipes results folder if it exists to set up a fresh run on all samplers and all problems. If set to False, "
-        "the evaluation is only run for samplers and problems that do not already exist in results folder",
+        action="store_true",
+        help="Wipe the results folder before running, for a fresh run on all samplers and all problems. "
+        "Omit the flag to only run samplers and problems that do not already exist in the results folder.",
     )
 
     args = parser.parse_args()
