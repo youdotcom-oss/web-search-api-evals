@@ -7,6 +7,30 @@ from evals.configs import datasets
 from evals.processing import synthesizer_utils
 
 
+def normalize_formatted_results(
+    formatted_results: str | list[str], needs_synthesis: bool
+) -> str | list[str]:
+    """Coerce a sampler's formatted results into the shape the next stage expects.
+
+    format_results implementations legitimately return either a list of search
+    results or a single already-written answer. The two downstream paths each
+    require one specific shape:
+
+    - synthesis iterates the results, so a bare string would be consumed one
+      character at a time and rejoined with separators between every character
+    - the no-synthesis path uses the value directly as the answer, so a list
+      would be stringified as a Python repr before reaching the grader
+
+    Normalizing here keeps individual samplers free to return whichever shape is
+    natural for their provider.
+    """
+    if needs_synthesis and isinstance(formatted_results, str):
+        return [formatted_results]
+    if not needs_synthesis and isinstance(formatted_results, list):
+        return "\n".join(formatted_results)
+    return formatted_results
+
+
 class BaseSampler(ABC):
     """Base class for all samplers with common functionality"""
 
@@ -40,7 +64,7 @@ class BaseSampler(ABC):
         pass
 
     @abstractmethod
-    def format_results(self, results: Any) -> list[str]:
+    def format_results(self, results: Any) -> str | list[str]:
         """
         Format search results.
 
@@ -48,9 +72,13 @@ class BaseSampler(ABC):
             results: Raw search results from get_search_results
 
         Returns:
-            tuple: (formatted_results) where formatted_results is either:
+            Either:
                 - str: Already synthesized answer (no further synthesis needed)
                 - list[str]: List of individual search results (needs synthesis)
+
+            Return whichever shape is natural for the provider;
+            normalize_formatted_results coerces it to what the configured
+            needs_synthesis path requires.
         """
         pass
 
@@ -114,7 +142,9 @@ class BaseSampler(ABC):
                     (response_end_time_ms - response_start_time) * 1000, 2
                 )
 
-            formatted_results = self.format_results(raw_results)
+            formatted_results = normalize_formatted_results(
+                self.format_results(raw_results), self.needs_synthesis
+            )
         except Exception as e:
             (
                 raw_results,
