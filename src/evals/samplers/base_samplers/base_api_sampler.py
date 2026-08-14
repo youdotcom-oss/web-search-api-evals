@@ -1,9 +1,14 @@
 from abc import abstractmethod
+import logging
 from typing import Any, Dict
 
 import aiohttp
 
 from evals.samplers.base_samplers.base_sampler import BaseSampler
+
+
+# Enough of the provider's error body to identify the problem without flooding logs.
+MAX_ERROR_BODY_CHARS = 2000
 
 
 class BaseAPISampler(BaseSampler):
@@ -60,36 +65,46 @@ class BaseAPISampler(BaseSampler):
         """Get provider specific HTTP method"""
         pass
 
+    @staticmethod
+    async def _decode_response(response: aiohttp.ClientResponse) -> Any:
+        """Return the decoded JSON body, or raise with the provider's error text.
+
+        aiohttp's raise_for_status() reports only the status line, e.g.
+        "400, message='Bad Request'". Providers put the actual reason in the
+        response body -- which field was rejected, which parameter was invalid --
+        and discarding it turns a one-line diagnosis into a debugging session.
+        """
+        if response.status >= 400:
+            body = (await response.text())[:MAX_ERROR_BODY_CHARS]
+            raise aiohttp.ClientResponseError(
+                response.request_info,
+                response.history,
+                status=response.status,
+                message=f"{response.reason}: {body}",
+                headers=response.headers,
+            )
+        return await response.json()
+
     async def get_search_results(self, query: str) -> Any:
         """Get raw search results from the API using async HTTP"""
         try:
             self._set_params()
             payload = self._get_payload(query)
+            url = self.base_url + self.endpoint
 
             timeout = aiohttp.ClientTimeout(total=self.timeout)
             async with aiohttp.ClientSession(timeout=timeout) as session:
                 if self.method == "POST":
-                    async with session.post(
-                        self.base_url + self.endpoint,
-                        json=payload,
-                        headers=self.headers,
-                    ) as response:
-                        response.raise_for_status()
-                        data = await response.json()
+                    request = session.post(url, json=payload, headers=self.headers)
                 elif self.method == "GET":
-                    async with session.get(
-                        self.base_url + self.endpoint,
-                        params=payload,
-                        headers=self.headers,
-                    ) as response:
-                        response.raise_for_status()
-                        data = await response.json()
+                    request = session.get(url, params=payload, headers=self.headers)
                 else:
                     raise ValueError(
                         'Unsupported method, please select between ["POST", "GET"]'
                     )
 
-                return data
+                async with request as response:
+                    return await self._decode_response(response)
         except Exception as e:
-            print(f"{self.sampler_name} failed with error {e}")
+            logging.error(f"{self.sampler_name} failed with error {e}")
             raise e

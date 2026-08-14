@@ -6,6 +6,7 @@ calculate performance metrics, and generate summary reports.
 """
 
 import glob
+import logging
 import os
 from pathlib import Path
 from typing import List, Optional
@@ -73,9 +74,17 @@ def write_metrics(results_dir: Optional[Path] = None):
             df_sampler_results[df_sampler_results["evaluation_result"] == "is_correct"]
         )
         count_answered = len(successful_df)
+        # Failed rows are excluded from the accuracy calculation, so report them
+        # explicitly -- otherwise a sampler that errored on half the dataset is
+        # indistinguishable from one that answered all of it.
+        failed_count = len(df_sampler_results) - count_answered
 
         if count_answered == 0:
-            raise ValueError(f"No successful results found for sampler {sampler_name}")
+            logging.warning(
+                f"No successful results for sampler {sampler_name} on dataset "
+                f"{dataset_name} ({failed_count} failed); excluding it from the summary"
+            )
+            continue
 
         accuracy_score = round((correct / count_answered) * 100, 2)
 
@@ -89,8 +98,16 @@ def write_metrics(results_dir: Optional[Path] = None):
                     float(p50_request_response_latency), 2
                 ),
                 "problem_count": count_answered,
+                "failed_count": failed_count,
             }
         )
+
+    if not metric_rows:
+        logging.warning(
+            f"No sampler in {results_dir} produced a successful result; "
+            "no metrics summary written"
+        )
+        return
 
     write_path = results_dir / "analyzed_results.csv"
     metric_df = pd.DataFrame(metric_rows).sort_values(
