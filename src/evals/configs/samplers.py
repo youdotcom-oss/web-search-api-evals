@@ -20,7 +20,7 @@ from evals.samplers.applied_samplers.you_search_sampler import (
     YouFinanceResearchSampler,
     YouLivecrawlSampler,
     YouResearchSampler,
-    YouSearchSnippetsSampler,
+    YouSearchHighlightsSampler,
 )
 
 
@@ -53,7 +53,7 @@ SAMPLERS = [
         research_effort=ResearchEffort.EXHAUSTIVE,
         timeout=400,
     ),
-    YouSearchSnippetsSampler(
+    YouSearchHighlightsSampler(
         sampler_name="you_search",
         api_key=os.getenv("YDC_API_KEY"),
         include_news_results=False,

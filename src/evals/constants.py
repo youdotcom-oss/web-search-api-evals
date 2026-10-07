@@ -1,5 +1,5 @@
 # We used a weaker model for synthesis and a stronger model for grading to ensure fairness.
-SYNTHESIS_MODEL = "gpt-5.4-nano"
+SYNTHESIS_MODEL = "gpt-5.6-luna"
 GRADER_MODEL = "gpt-5.4-mini"
 FIN_SEARCH_GRADER_MODEL = "gpt-5-mini"
 
@@ -8,7 +8,7 @@ MAX_SEARCH_RESULT_TOKENS = 265000
 
 SYNTHESIS_PROMPT = """
     You are an AI assistant that answers questions using search results.
-    Read the provided search snippets carefully and answer based only on information found in the snippets.
+    Read the provided search results carefully and answer based only on information found in the results.
     Keep your response clear and concise.
 """
 
