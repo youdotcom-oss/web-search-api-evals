@@ -27,7 +27,7 @@ class YouSampler(BaseSDKSampler):
         )
 
     def _initialize_client(self):
-        self.client = youdotcom.You(self.api_key)
+        self.client = youdotcom.You(self.api_key, timeout_ms=int(self.timeout * 1000))
 
     def _get_search_results_impl(self, query: str) -> Any:
         pass
@@ -134,7 +134,7 @@ class YouLivecrawlSampler(YouSearchSampler):
             query=query,
             count=10,
             livecrawl=livecrawl,
-            livecrawl_formats=LiveCrawlFormats.MARKDOWN,
+            livecrawl_formats=[LiveCrawlFormats.MARKDOWN],
         )
 
 
