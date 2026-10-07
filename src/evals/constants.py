@@ -1,5 +1,5 @@
 # We used a weaker model for synthesis and a stronger model for grading to ensure fairness.
-SYNTHESIS_MODEL = "gpt-5.4-nano"
+SYNTHESIS_MODEL = "gpt-5.6-luna"
 GRADER_MODEL = "gpt-5.4-mini"
 FIN_SEARCH_GRADER_MODEL = "gpt-5-mini"
 
