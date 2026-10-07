@@ -22,7 +22,7 @@ jobs:
       - name: Run tests
         run: pytest
         env:
-          YOU_API_KEY: ${{ secrets.YOU_API_KEY }}
+          YDC_API_KEY: ${{ secrets.YDC_API_KEY }}
           EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
           SERP_API_KEY: ${{ secrets.SERP_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

@@ -91,7 +91,7 @@ Edit `.env` and set the keys for your chosen providers. To run evaluations for a
 | Parallel                    | `PARALLEL_API_KEY`      |
 | Perplexity                  | `PERPLEXITY_API_KEY`    |
 | Tavily                      | `TAVILY_API_KEY`        |
-| You.com                     | `YOU_API_KEY`           |
+| You.com                     | `YDC_API_KEY`           |
 
 Grading uses OpenAI models by default, but Gemini models are also supported. Set `OPENAI_API_KEY` or 
 `GOOGLE_GEMINI_KEY` as appropriate for the LLM judge.
