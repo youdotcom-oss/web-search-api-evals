@@ -1,9 +1,14 @@
+import asyncio
+import logging
+import random
 from abc import abstractmethod
 from typing import Any, Dict
 
 import aiohttp
 
 from evals.samplers.base_samplers.base_sampler import BaseSampler
+
+RETRYABLE_STATUSES = frozenset({429, 500, 502, 503, 504})
 
 
 class BaseAPISampler(BaseSampler):
@@ -60,36 +65,43 @@ class BaseAPISampler(BaseSampler):
         """Get provider specific HTTP method"""
         pass
 
+    async def _request(self, payload: Dict[str, Any]) -> Any:
+        timeout = aiohttp.ClientTimeout(total=self.timeout)
+        async with aiohttp.ClientSession(timeout=timeout) as session:
+            if self.method not in ("GET", "POST"):
+                raise ValueError(
+                    'Unsupported method, please select between ["POST", "GET"]'
+                )
+            kwargs = {"json": payload} if self.method == "POST" else {"params": payload}
+            async with session.request(
+                self.method,
+                self.base_url + self.endpoint,
+                headers=self.headers,
+                **kwargs,
+            ) as response:
+                response.raise_for_status()
+                return await response.json()
+
+    @staticmethod
+    def _is_retryable(error: Exception) -> bool:
+        if isinstance(error, aiohttp.ClientResponseError):
+            return error.status in RETRYABLE_STATUSES
+        return isinstance(error, (aiohttp.ClientConnectionError, asyncio.TimeoutError))
+
     async def get_search_results(self, query: str) -> Any:
-        """Get raw search results from the API using async HTTP"""
-        try:
-            self._set_params()
-            payload = self._get_payload(query)
+        """Get raw search results from the API, retrying transient failures with backoff"""
+        self._set_params()
+        payload = self._get_payload(query)
 
-            timeout = aiohttp.ClientTimeout(total=self.timeout)
-            async with aiohttp.ClientSession(timeout=timeout) as session:
-                if self.method == "POST":
-                    async with session.post(
-                        self.base_url + self.endpoint,
-                        json=payload,
-                        headers=self.headers,
-                    ) as response:
-                        response.raise_for_status()
-                        data = await response.json()
-                elif self.method == "GET":
-                    async with session.get(
-                        self.base_url + self.endpoint,
-                        params=payload,
-                        headers=self.headers,
-                    ) as response:
-                        response.raise_for_status()
-                        data = await response.json()
-                else:
-                    raise ValueError(
-                        'Unsupported method, please select between ["POST", "GET"]'
-                    )
-
-                return data
-        except Exception as e:
-            print(f"{self.sampler_name} failed with error {e}")
-            raise e
+        for attempt in range(self.max_retries + 1):
+            try:
+                return await self._request(payload)
+            except Exception as e:
+                if attempt == self.max_retries or not self._is_retryable(e):
+                    logging.error(f"{self.sampler_name} failed with error {e}")
+                    raise
+                backoff = 2**attempt + random.random()
+                logging.warning(
+                    f"{self.sampler_name} attempt {attempt + 1}/{self.max_retries} failed: {e}. Retrying in {backoff:.1f}s"
+                )
+                await asyncio.sleep(backoff)
