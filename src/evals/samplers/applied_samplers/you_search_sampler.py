@@ -64,22 +64,18 @@ class YouSearchSampler(YouSampler):
             title = result.title
             url = result.url
 
-            if result.contents and "markdown" in result.contents.__dict__.keys():
-                contents = result.contents.markdown
-                formatted_result = f"[{title}]({url})\n{contents}"
-                formatted_results.append(formatted_result)
+            contents = result.contents
+            if contents and contents.markdown:
+                formatted_result = f"[{title}]({url})\n{contents.markdown}"
             else:
-                description = result.description
-                snippet = result.snippets
-                if snippet and isinstance(snippet, list):
-                    snippet = " ".join(snippet)
-                formatted_result = f"[{title}]({url})\n snippet: {snippet}\n description: {description}"
-                formatted_results.append(formatted_result)
+                highlights = " ".join(contents.highlights or []) if contents else ""
+                formatted_result = f"[{title}]({url})\n highlights: {highlights}\n description: {result.description}"
+            formatted_results.append(formatted_result)
 
         return formatted_results
 
 
-class YouSearchSnippetsSampler(YouSearchSampler):
+class YouSearchHighlightsSampler(YouSearchSampler):
     def __init__(
         self,
         sampler_name: str,
@@ -102,6 +98,7 @@ class YouSearchSnippetsSampler(YouSearchSampler):
         return self.client.search.unified(
             query=query,
             count=10,
+            extraction={"extraction_mode": "highlights"},
         )
 
 
