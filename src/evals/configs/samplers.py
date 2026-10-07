@@ -27,47 +27,47 @@ from evals.samplers.applied_samplers.you_search_sampler import (
 SAMPLERS = [
     YouLivecrawlSampler(
         sampler_name="you_search_with_livecrawl",
-        api_key=os.getenv("YOU_API_KEY"),
+        api_key=os.getenv("YDC_API_KEY"),
         include_news_results=False,
     ),
     YouResearchSampler(
         sampler_name="you_research_lite",
-        api_key=os.getenv("YOU_API_KEY"),
+        api_key=os.getenv("YDC_API_KEY"),
         research_effort=ResearchEffort.LITE,
     ),
     YouResearchSampler(
         sampler_name="you_research_standard",
-        api_key=os.getenv("YOU_API_KEY"),
+        api_key=os.getenv("YDC_API_KEY"),
         research_effort=ResearchEffort.STANDARD,
         timeout=120,
     ),
     YouResearchSampler(
         sampler_name="you_research_deep",
-        api_key=os.getenv("YOU_API_KEY"),
+        api_key=os.getenv("YDC_API_KEY"),
         research_effort=ResearchEffort.DEEP,
         timeout=200,
     ),
     YouResearchSampler(
         sampler_name="you_research_exhaustive",
-        api_key=os.getenv("YOU_API_KEY"),
+        api_key=os.getenv("YDC_API_KEY"),
         research_effort=ResearchEffort.EXHAUSTIVE,
         timeout=400,
     ),
     YouSearchSnippetsSampler(
         sampler_name="you_search",
-        api_key=os.getenv("YOU_API_KEY"),
+        api_key=os.getenv("YDC_API_KEY"),
         include_news_results=False,
     ),
     # You.com finance research samplers
     YouFinanceResearchSampler(
         sampler_name="you_finance_research_deep",
-        api_key=os.getenv("YOU_API_KEY"),
+        api_key=os.getenv("YDC_API_KEY"),
         research_effort="deep",
         timeout=300,
     ),
     YouFinanceResearchSampler(
         sampler_name="you_finance_research_exhaustive",
-        api_key=os.getenv("YOU_API_KEY"),
+        api_key=os.getenv("YDC_API_KEY"),
         research_effort="exhaustive",
         timeout=600,
     ),
