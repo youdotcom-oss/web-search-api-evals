@@ -105,14 +105,8 @@ SAMPLERS = [
         timeout=3000,
     ),
     TavilySampler(
-        sampler_name="tavily_basic",
+        sampler_name="tavily_search",
         api_key=os.getenv("TAVILY_API_KEY"),
-        search_depth="basic",
-    ),
-    TavilySampler(
-        sampler_name="tavily_advanced",
-        api_key=os.getenv("TAVILY_API_KEY"),
-        search_depth="advanced",
     ),
     TavilyResearchSampler(
         sampler_name="tavily_research_pro",

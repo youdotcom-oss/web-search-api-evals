@@ -16,9 +16,7 @@ class TavilySampler(BaseSDKSampler):
         timeout: float = 60.0,
         max_retries: int = 3,
         needs_synthesis: bool = True,
-        search_depth: str = None,
     ):
-        self.search_depth = search_depth
         super().__init__(
             sampler_name=sampler_name,
             api_key=api_key,
@@ -34,7 +32,6 @@ class TavilySampler(BaseSDKSampler):
         return self.client.search(
             query=query,
             max_results=10,
-            search_depth=self.search_depth,
         )
 
     def format_results(self, results: Any) -> list[str]:
