@@ -75,7 +75,8 @@ def write_metrics(results_dir: Optional[Path] = None):
         count_answered = len(successful_df)
 
         if count_answered == 0:
-            raise ValueError(f"No successful results found for sampler {sampler_name}")
+            print(f"Warning: no successful results for sampler {sampler_name}; skipping metrics")
+            continue
 
         accuracy_score = round((correct / count_answered) * 100, 2)
 

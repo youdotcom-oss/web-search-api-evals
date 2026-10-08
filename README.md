@@ -19,20 +19,19 @@ GitHub Discussions. For enterprise or private inquiries, reach out directly at a
 ## Results
 
 Below are evaluation results across different search samplers and benchmark suites. Grading is performed via an LLM 
-judge (GPT 5.4 mini) using prompts from the standard benchmarks (as specified in the original papers or repositories).[^2]
-GPT 5.4 nano was used as the synthesis model.
+judge (GPT 5.4 Mini) using prompts from the standard benchmarks (as specified in the original papers or repositories).[^2]
+GPT 5.6 Luna was used as the synthesis model. The evaluation was run on October 7th, 2026.
 
 **SimpleQA**
 
 | sampler                   | accuracy | p50_latency_ms* |
 |---------------------------|----------|-----------------|
-| you_search_with_livecrawl |**92.09%**| 1048.05         |
-| exa_search_with_text      | 90.06%   | 1176.05         |
-| parallel_search_basic     | 89.78%   | 1901.66         |
-| tavily_advanced           | 86.32%   | 3190.00         |
-| you_search                | 84.81%   | 538.44          |
-| google_search             | 80.17%   | 1347.48         |
-| tavily_basic              | 59.11%   | 1340.00         |
+| you_search                |**96.11%**| 597.87          |
+| exa_search_with_text      | 95.40%   | 2502.01         |
+| you_search_with_livecrawl |  95.23%  | 4000.36         |
+| parallel_search_basic     | 94.87%   | 1660.24         |
+| tavily_search              | 88.53%   | 1930.00         |
+| google_search             | 50.08%   | 1430.42         |
 * Internal latency as reported by the provider is used when available. When unavailable, the total time taken to complete 
 the API request is used. 
 
@@ -40,14 +39,12 @@ the API request is used.
 
 | sampler                   | accuracy | p50_latency_ms |
 |---------------------------|----------|----------------|
-| you_research_lite         | 70.75%   | 3939.82        |
-| tavily_advanced           | 39.93%   | 3460.00        |
-| exa_search_with_text      | 39.81%   | 1351.75        |
-| you_search_with_livecrawl | 37.26%   | 1153.78        |
-| parallel_search_basic     | 34.83%   | 2118.61        |
-| you_search                | 28.03%   | 565.80         |
-| google_search             | 22.94%   | 1475.05        |
-| tavily_basic              | 19.30%   | 2180.00        |
+| you_search                |**74.03%**| 884.23        |
+| parallel_search_basic      | 73.79%   | 1730.93        |
+| exa_search_with_text      | 73.79%   | 2693.65        |
+| you_search_with_livecrawl | 72.12%   | 3897.48         |
+| tavily_search              | 66.14%   | 2240.00        |
+| google_search             | 60.00%   | 1512.49        |
 
 
 ### Supported Benchmarks
@@ -91,7 +88,7 @@ Edit `.env` and set the keys for your chosen providers. To run evaluations for a
 | Parallel                    | `PARALLEL_API_KEY`      |
 | Perplexity                  | `PERPLEXITY_API_KEY`    |
 | Tavily                      | `TAVILY_API_KEY`        |
-| You.com                     | `YOU_API_KEY`           |
+| You.com                     | `YDC_API_KEY`           |
 
 Grading uses OpenAI models by default, but Gemini models are also supported. Set `OPENAI_API_KEY` or 
 `GOOGLE_GEMINI_KEY` as appropriate for the LLM judge.
@@ -110,7 +107,7 @@ python src/evals/eval_runner.py --help
 python src/evals/eval_runner.py
 
 # Run SimpleQA for specific samplers only
-python src/evals/eval_runner.py --samplers you_search_with_livecrawl tavily_basic --datasets simpleqa
+python src/evals/eval_runner.py --samplers you_search_with_livecrawl tavily_search --datasets simpleqa
 
 # Run FRAMES evaluation
 python src/evals/eval_runner.py --datasets frames
